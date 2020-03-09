@@ -1,0 +1,19 @@
+[
+    {
+        "time": "2020-03-09T23:46:06.385Z",
+        "product_name": "Keyboard",
+        "action": "add"
+    },
+    {
+        "time": "2020-03-09T23:46:06.830Z",
+        "action": "change"
+    },
+    {
+        "time": "2020-03-09T23:46:47.706Z",
+        "action": "change"
+    },
+    {
+        "time": "2020-03-09T23:46:55.249Z",
+        "action": "del"
+    }
+]
