@@ -1,0 +1,1453 @@
+@import "var"
+@import "shopping_cart"
+@import "checkout"
+
+@keyframes text-shadow-pop-left
+  0%
+    text-shadow: 0 0 #555555, 0 0 #555555, 0 0 #555555, 0 0 #555555, 0 0 #555555, 0 0 #555555, 0 0 #555555, 0 0 #555555
+    transform: translateX(0)
+  100%
+    text-shadow: -1px 0 #555555, -2px 0 #555555
+    transform: translateX(2px)
+
+@keyframes text-shadow-pop-default
+  100%
+    transform: translateX(-2px)
+
+*
+  margin: 0
+  padding: 0
+
+body
+  font-family: 'Lato', sans-serif
+
+a
+  text-decoration: none
+
+.padding-site
+  padding-left: 230px
+  padding-right: 230px
+
+.header
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.17)
+  border: 1px solid #ececec
+  background-color: #ffffff
+
+.container
+  width: 1140px
+  margin: 0 auto
+
+.header__content
+  height: 100px
+  display: flex
+  justify-content: space-between
+  align-items: center
+
+.header__left,
+.header__right,
+.header__form,
+.logo
+  display: flex
+  align-items: center
+
+.logo-last-letter
+  color: $color-site
+  font-weight: 600
+  margin-left: 2px
+  animation: text-shadow-pop-default 0.3s both
+
+.logo
+  color: #222222
+  font-size: 27px
+  font-weight: 300
+  text-transform: uppercase
+  margin-right: 37px
+  &:hover .logo-last-letter
+    animation: text-shadow-pop-left 0.3s both
+
+
+.logo__img
+  margin-right: 13px
+
+#browse
+  border-radius: 3px 0 0 3px
+  border: 1px solid #e6e6e6
+  background-color: #cdcdcc
+  background-image: linear-gradient(to bottom, #f9f9f9 0%, #f5f5f5 100%)
+  width: 85px
+  height: 36px
+  display: flex
+  justify-content: center
+  align-items: center
+  color: #222222
+  font-size: 14px
+  font-weight: 300
+
+.browse:hover .browse-drop
+  display: block
+
+.browse-drop
+  display: none
+  width: 262px
+  position: absolute
+  background-color: #ffffff
+  top: 39px
+  padding: 0 20px 20px 20px
+  box-sizing: border-box
+  border-radius: 5px
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.17)
+
+.browse-drop:before,
+.menu-drop:before
+  content: ""
+  width: 10px
+  height: 10px
+  background-color: #fff
+  display: block
+  position: absolute
+  top: -6px
+  left: 20px
+  transform: rotate(45deg)
+  border-top: 1px solid #e8e8e8
+
+.browse-drop-ul
+  list-style: none
+  margin-top: 16px
+
+.browse-drop-h3
+  border-bottom: 1px solid #e8e8e8
+  color: #232323
+  font-size: 14px
+  font-weight: 400
+  line-height: 32px
+  text-transform: uppercase
+  margin-top: 20px
+
+.browse-drop-link
+  color: #4f4f4f
+  font-size: 14px
+  font-weight: 400
+  padding: 6px 0
+  display: block
+  transition: color 0.2s
+
+.browse-drop-link:hover
+  color: $color-site
+
+.arrow-down
+  margin-left: 6px
+  margin-top: 2px
+
+#search-text
+  width: 280px
+  height: 36px
+  border: 1px solid #e6e6e6
+  background-color: #ffffff
+  padding-left: 16px
+  color: #a4a4a4
+  font-size: 14px
+  font-weight: 300
+  letter-spacing: 0.35px
+  padding-right: 16px
+  outline: none
+
+#search-button
+  width: 36px
+  height: 36px
+  border-radius: 0 3px 3px 0
+  border: 1px solid #e6e6e6
+  background-color: #ffffff
+  display: flex
+  justify-content: center
+  align-items: center
+  cursor: pointer
+
+.cart-block
+  position: relative
+
+.cart-block:hover .browse-drop
+  display: block
+
+.cart-drop
+  display: flex
+  border-bottom: 1px solid #ededed
+  padding-bottom: 20px
+  margin-top: 20px
+
+.cart-remove
+  cursor: pointer
+
+.cart-drop-img
+  width: 72px
+  height: 85px
+
+.cart-drop-h4
+  color: #222222
+  font-size: 12px
+  font-weight: 900
+  text-transform: uppercase
+
+.fa-star,
+.fa-star-half
+  color: #e4af48
+  font-size: 12px
+
+.drop-correct-height
+  top: 35px
+  z-index: 3
+
+.fa-times
+  margin-left: 36px
+  margin-top: 30px
+  color: #ffffff
+  width: 15px
+  height: 15px
+  background-color: #c0c0c0
+  font-size: 10px
+  line-height: 15px
+  border-radius: 50%
+  text-align: center
+  transition: all 0.3s
+
+.fa-times:hover
+  background-color: #ffffff
+  color: #c0c0c0
+
+.cart-drop-p
+  color: $color-site
+  font-size: 12px
+  font-weight: 400
+  text-transform: uppercase
+
+.cart-drop-info
+  display: flex
+  flex-direction: column
+  margin-left: 14px
+  line-height: 33px
+
+.cart-drop-rate
+  display: flex
+
+.cart-drop-total
+  color: #222222
+  font-size: 16px
+  font-weight: 700
+  text-transform: uppercase
+  display: flex
+  justify-content: space-between
+  margin-top: 19px
+
+.cart-drop-button
+  display: flex
+  flex-direction: column
+  margin-top: 32px
+
+.cart-drop-checkout
+  width: 225px
+  height: 50px
+  color: $color-site
+  font-size: 14px
+  font-weight: 700
+  text-transform: uppercase
+  display: flex
+  justify-content: center
+  align-items: center
+  border: 1px solid $color-site
+  transition: all 0.3s
+
+.cart-drop-checkout
+  transition-property: background-color, color
+  transition-duration: 0.3s
+
+.cart-drop-checkout:hover
+  background-color: $color-site
+  color: #ffffff
+
+.cart-drop-gocart
+  width: 225px
+  height: 50px
+  color: #4a4a4a
+  font-size: 14px
+  font-weight: 700
+  text-transform: uppercase
+  display: flex
+  justify-content: center
+  align-items: center
+  border: 1px solid #eaeaea
+  background-color: #ffffff
+  margin-top: 11px
+  transition-property: background-color, color
+  transition-duration: 0.3s
+
+.cart-drop-gocart:hover
+  background-color: #cccccc
+  color: #ffffff
+  border: 1px solid #cccccc
+
+.cart
+  margin-right: 26px
+
+.button-account
+  width: 130px
+  height: 38px
+  background-color: $color-site
+  display: flex
+  justify-content: center
+  align-items: center
+  color: #ffffff
+  font-size: 15px
+  font-weight: 400
+  letter-spacing: 0.38px
+  transition: background-color 0.3s
+
+.button-account:hover
+  background-color: #F094A3
+
+.menu
+  list-style-type: none
+  display: flex
+  justify-content: center
+
+.menu__list
+  position: relative
+
+.menu-drop
+  display: none
+  position: absolute
+  background-color: #ffffff
+  top: 49px
+  padding: 0 20px 20px 20px
+  box-sizing: border-box
+  border-radius: 5px
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.17)
+  z-index: 2
+
+.menu-drop-h3
+  border-bottom: 1px solid #e8e8e8
+  color: #232323
+  font-size: 14px
+  font-weight: 400
+  line-height: 32px
+  text-transform: uppercase
+  margin-top: 10px
+
+.menu-drop-last
+  right: 0
+
+.menu-drop-last:before
+  right: 20px
+  left: auto
+
+.menu__link
+  display: block
+  padding: 20px
+  color: #222222
+  font-size: 14px
+  font-weight: 700
+  text-transform: uppercase
+  border-bottom: 3px solid transparent
+  transition: border-bottom 0.3s
+
+.menu__link-active
+  border-bottom: 3px solid $color-site
+
+.menu__link:hover
+  border-bottom: 3px solid $color-site
+
+.menu__list:hover .menu-drop
+  display: flex
+  justify-content: space-around
+
+.menu-drop-width
+  padding-right: 46px
+  width: 235px
+
+.menu-drop-width:last-of-type
+  padding-right: 0
+
+.menu-drop-img
+  width: 225px
+  height: 118px
+  margin-top: 22px
+
+.promo
+  background-color: #e8e8e8
+
+.promo__container
+  height: 613px
+  background-image: url(../img/promo_img.jpg)
+  background-position: 0 -51px
+  padding-top: 224px
+  box-sizing: border-box
+
+.promo__text
+  display: flex
+
+.promo__h2
+  color: #222222
+  font-size: 60px
+  font-weight: 600
+  text-transform: uppercase
+
+.promo__h3
+  color: #222222
+  font-size: 40px
+  font-weight: 600
+  letter-spacing: 1.5px
+
+.rectangle-head
+  width: 12px
+  height: 96px
+  background-color: $color-site
+  margin-top: 15px
+  margin-right: 12px
+
+.stocks
+  display: flex
+  flex-wrap: wrap
+  justify-content: center
+
+.stocks-formen
+  background-image: url(../img/stocks-men.jpg)
+  width: 560px
+  height: 542px
+  margin-top: 98px
+  margin-right: 21px
+  display: flex
+
+.stocks-forwomen
+  background-image: url(../img/stocks-women.jpg)
+  width: 560px
+  height: 261px
+  margin-top: 98px
+  display: flex
+
+.stocks-accesories
+  width: 560px
+  height: 261px
+  background-image: url(../img/stocks-accesories.jpg)
+  margin-top: 20px
+  display: flex
+
+.stocks-kids
+  width: 560px
+  height: 542px
+  background-image: url(../img/stocks-kids.jpg)
+  margin-top: 20px
+  display: flex
+
+.stocks-white
+  height: 82px
+  background-color: white
+  margin-top: 26px
+  color: #222222
+  font-size: 18px
+  font-weight: 600
+  text-transform: uppercase
+  padding: 16px 18px
+  box-sizing: border-box
+  letter-spacing: 0.45px
+
+.stocks-p
+  color: $color-site
+  font-size: 30px
+  letter-spacing: 0.75px
+
+.featured
+  margin-top: 120px
+  display: flex
+  flex-direction: column
+  align-items: center
+
+.featured-h3
+  color: #222222
+  font-size: 30px
+  font-weight: 700
+  letter-spacing: 0.75px
+
+.featured-p
+  color: #9f9f9f
+  font-size: 14px
+  font-weight: 400
+  letter-spacing: 0.35px
+  margin-top: 5px
+
+.featured-items
+  display: flex
+  margin-top: 60px
+  width: 1185px
+  justify-content: flex-end
+  flex-wrap: wrap
+
+.featured-block
+  height: 410px
+  width: 260px
+  margin-right: 31px
+
+.featured-product
+  width: 261px
+  height: 279px
+  background-repeat: no-repeat
+  display: flex
+  justify-content: center
+  align-items: center
+  flex-direction: column
+  // transition: all 0.3s
+
+.featured-block:hover .featured-product
+  background-blend-mode: multiply
+  background-color: #3a3838
+
+.featured-block:hover .featured-name
+  box-shadow: 0 5px 8px rgba(0, 0, 0, 0.16)
+
+.featured-block:hover .featured-cart
+  display: flex
+
+.featured-block:hover .products-elements-click
+  display: flex
+
+.featured-name
+  padding-top: 20px
+  padding-left: 14px
+  height: 83px
+  color: #222222
+  font-size: 13px
+  font-weight: 400
+  text-transform: uppercase
+  display: flex
+  flex-direction: column
+
+.featured-coast
+  margin-top: 17px
+  color: $color-site
+  font-size: 16px
+  font-weight: 700
+  text-transform: uppercase
+
+.featured-cart
+  width: 122px
+  height: 38px
+  border: 1px solid #ffffff
+  justify-content: center
+  align-items: center
+  color: #ffffff
+  font-size: 13px
+  font-weight: 400
+  display: none
+  transition: background-color 0.3s
+  cursor: pointer
+
+.featured-cart:hover
+  background-color: rgba(255, 255, 255, 0.15)
+
+.featured-browse
+  width: 212px
+  height: 48px
+  margin-top: 58px
+  background-color: $color-site
+  display: flex
+  justify-content: center
+  align-items: center
+  color: #ffffff
+  font-size: 16px
+  font-weight: 400
+  letter-spacing: 0.4px
+  transition: background-color 0.3s
+
+.featured-browse:hover
+  background-color: #F094A3
+
+.sales
+  width: 1140px
+  height: 529px
+  display: flex
+  margin-top: 113px
+  flex-wrap: nowrap
+
+.sales-image
+  background-image: url(../img/sales-image.jpg)
+  width: 767px
+  background-repeat: no-repeat
+  background-blend-mode: hard-light
+  background-color: rgba(0, 0, 0, 0.5)
+  padding-top: 146px
+  padding-left: 39px
+  box-sizing: border-box
+
+.sales-block
+  background-color: #222224
+  width: 373px
+
+.sales-text
+  color: #ffffff
+  font-size: 54px
+  font-weight: 700
+  text-transform: uppercase
+  letter-spacing: 1.5px
+
+.sales-text-pink
+  color: $color-site
+
+.sales-text-smaller
+  font-size: 32px
+  letter-spacing: 0.9px
+  color: #ffffff
+
+.sales-block
+  display: flex
+  flex-direction: column
+  padding-left: 36px
+  justify-content: space-evenly
+
+.sales-block-group
+  width: 294px
+  height: 102px
+  display: flex
+  align-items: flex-start
+
+.sales-block-text
+  display: flex
+  flex-direction: column
+  margin-left: 33px
+
+.sales-block-text-h3
+  color: #fbfbfb
+  font-size: 20px
+  font-weight: 700
+  letter-spacing: 0.5px
+
+.sales-block-text-p
+  color: #fbfbfb
+  font-size: 14px
+  font-weight: 300
+  letter-spacing: 0.35px
+  width: 220px
+  margin-top: 17px
+
+.review
+  background-image: url(../img/background-review.jpg)
+  height: 438px
+  background-position: 50% 50%
+  background-repeat: no-repeat
+  background-size: cover
+  display: flex
+  justify-content: space-around
+  margin-top: 97px
+  background-blend-mode: color
+  background-color: rgba(242, 242, 242, 0.5)
+
+.review-rectangle
+  width: 1px
+  height: 438px
+  background-color: #ffffff
+  position: absolute
+
+.review-left-block
+  display: flex
+  margin-top: 111px
+  margin-left: 100px
+
+.review-text
+  width: 497px
+  display: flex
+  flex-direction: column
+  box-sizing: border-box
+
+.review-photo
+  width: 83px
+  height: 83px
+
+.review-p
+  color: #222224
+  font-size: 16px
+  font-style: italic
+  line-height: 26px
+  font-weight: 600
+  letter-spacing: 0.4px
+  width: 386px
+  margin-left: 28px
+  margin-top: 10px
+
+.review-h5
+  display: flex
+  flex-direction: column
+  color: #222224
+  font-size: 12px
+  font-weight: 300
+  line-height: 14px
+  margin: 20px 30px
+
+.review-pink
+  color: $color-site
+  font-size: 16px
+  font-weight: 700
+
+.pagination
+  display: flex
+  margin-left: 31px
+
+.pagination-line
+  width: 38px
+  height: 4px
+  background-color: #d6d6d6
+  margin: 10px 5px
+  transition: background-color 0.3s
+
+.pagination-line:hover
+  background-color: $color-site
+
+.pagination-line-active
+  background-color: $color-site
+
+.review-right-block
+  display: flex
+  flex-direction: column
+  margin-top: 148px
+  margin-right: 200px
+
+.review-h3
+  color: #222224
+  font-size: 14px
+  font-weight: 400
+  text-align: center
+
+.review-subscribe
+  font-size: 24px
+  line-height: 34px
+  text-transform: uppercase
+
+.review-form
+  display: flex
+  margin-top: 35px
+
+#email
+  width: 282px
+  height: 46px
+  background-color: #e1e1e1
+  border: none
+  border-radius: 23px 0 0 23px
+  outline: none
+  color: #222224
+  font-size: 14px
+  font-weight: 400
+  padding: 0 28px
+  box-sizing: border-box
+
+.email
+  display: flex
+  margin-top: 5px
+
+#subscribe
+  width: 104px
+  border-radius: 0 23px 23px 0
+  background-color: $color-site
+  border: none
+  line-height: 46px
+  text-align: center
+  color: #ffffff
+  font-size: 14px
+  font-weight: 400
+  transition: background-color 0.3s
+  cursor: pointer
+  outline: none
+
+#subscribe:hover
+  background-color: #F094A3
+
+.info
+  margin-top: 109px
+  display: flex
+  justify-content: space-between
+
+.logo-footer
+  margin-right: 0
+
+.info-block-p
+  width: 427px
+  color: #898989
+  font-size: 14px
+  font-weight: 300
+  line-height: 24px
+  margin-top: 29px
+
+.info-block-h3
+  color: $color-site
+  font-size: 18px
+  font-weight: 700
+  line-height: 26px
+  text-transform: uppercase
+  margin-top: 14px
+
+.info-block-links
+  list-style: none
+  margin-top: 28px
+
+.info-block-a
+  color: #898989
+  font-size: 16px
+  font-weight: 400
+  display: block
+  padding: 10px 0
+  transition: color 0.3s
+
+.info-block-a:hover
+  color: $color-site
+
+.footer
+  margin-top: 89px
+  height: 79px
+  background-color: #e6e6e6
+  display: flex
+  justify-content: space-between
+  align-items: center
+
+.copyright
+  color: #7a7a7a
+  font-size: 16px
+  font-weight: 400
+
+.fab
+  background-color: #ffffff
+  width: 32px
+  height: 32px
+  text-align: center
+  line-height: 32px
+  color: #b2b2b2
+  font-size: 16px
+  font-weight: 400
+  transition: all 0.3s
+
+.fab:hover
+  color: #ffffff
+  background-color: $color-site
+
+.browse
+  position: relative
+  z-index: 3
+
+.nav
+  background-color: #ffffff
+
+.way
+  background-color: #f8f3f4
+  height: 148px
+  display: flex
+  justify-content: space-between
+  align-items: center
+
+.way-h3
+  color: $color-site
+  font-size: 24px
+  font-weight: 700
+  text-transform: uppercase
+
+.way-link
+  color: #636363
+  font-size: 14px
+  font-weight: 300
+  text-transform: uppercase
+  transition: color 0.3s
+  &:hover
+    color: $color-site
+
+.way-link-active
+  color: $color-site
+  font-weight: 700
+  text-transform: uppercase
+
+.main-product
+  display: flex
+  margin-top: 59px
+
+.main-left
+  width: 243px
+
+.main-left-details
+  height: 37px
+  color: #6f6e6e
+  font-size: 14px
+  font-weight: 700
+  line-height: 20px
+  padding: 10px 0
+
+.main-left-details[open]
+  height: auto
+  color: #ef5b70
+  font-size: 14px
+  font-weight: 700
+  line-height: 20px
+
+.main-left-details-rectangle
+  width: 5px
+  background-color: #ef5b70
+  height: 40px
+  margin-right: 11px
+
+.main-left-details summary
+  display: flex
+  align-items: center
+  justify-content: flex-start
+  border-bottom: 1px solid #ebebeb
+  text-transform: uppercase
+  outline: none
+
+.main-left-details summary::-webkit-details-marker
+  display: none
+
+.main-left-details summary::after
+  color: #6f6e6e
+  content: " \25BC"
+  margin-left: auto
+
+.main-left-details[open] summary::after
+  color: #ef5b70
+  content: " \25B2"
+  margin-left: auto
+
+.main-left-ul
+  display: block
+  background-color: white
+  list-style-type: none
+  margin-top: 15px
+
+.main-left-li
+  padding: 0 20px
+
+.main-left-links
+  color: #6f6e6e
+  font-size: 14px
+  font-weight: 400
+  line-height: 33px
+  display: block
+  transition: color 0.1s
+
+.main-left-links:hover
+  color: #ef5b70
+
+.main-right
+  margin-left: 50px
+  width: 100%
+
+.filter
+  display: flex
+  justify-content: space-between
+
+.filter-h4
+  color: #6f6e6e
+  font-size: 14px
+  font-weight: 700
+  text-transform: uppercase
+
+.filter-trending-links
+  color: #dfdfdf
+  width: 176px
+  margin-top: 15px
+
+.filter-trending-links-a
+  color: #6f6e6e
+  font-size: 14px
+  font-weight: 400
+  line-height: 26px
+  transition: color 0.2s
+
+.filter-trending-links-a:hover
+  color: #ef5b70
+
+.filter-size
+  width: 236px
+
+#size-checkbox1
+  margin-top: 20px
+
+.size-checkbox
+  margin-right: 25px
+  color: #6f6e6e
+  font-size: 14px
+  font-weight: 400
+  text-transform: uppercase
+  cursor: pointer
+
+/*-----------Оформление ползунка-----------*/
+input[type=range].price-range
+  -webkit-appearance: none
+  width: 263px
+  margin-top: 20px
+
+input[type=range].price-range:focus
+  outline: none
+
+input[type=range].price-range::-webkit-slider-runnable-track
+  height: 6px
+  cursor: pointer
+  box-shadow: 0 0 0 #000000, 0 0 0 #0d0d0d
+  background: $color-site
+  border-radius: 25px
+  border: 0 solid #000101
+
+input[type=range].price-range::-webkit-slider-thumb
+  height: 14px
+  width: 14px
+  border-radius: 50%
+  background: $color-site
+  cursor: pointer
+  -webkit-appearance: none
+  margin-top: -4px
+
+input[type=range].price-range:focus::-webkit-slider-runnable-track
+  background: $color-site
+
+input[type=range].price-range::-moz-range-track
+  height: 6px
+  cursor: pointer
+  box-shadow: 0 0 0 #000000, 0 0 0 #0d0d0d
+  background: $color-site
+  border-radius: 25px
+  border: 0 solid #000101
+
+input[type=range].price-range::-moz-range-thumb
+  height: 14px
+  width: 14px
+  border-radius: 50%
+  background: $color-site
+  cursor: pointer
+  -webkit-appearance: none
+  margin-top: -4px
+
+input[type=range].price-range::-ms-track
+  height: 6px
+  cursor: pointer
+  box-shadow: 0 0 0 #000000, 0 0 0 #0d0d0d
+  background: $color-site
+  border-radius: 25px
+  border: 0 solid #000101
+
+input[type=range].price-range::-ms-fill-lower
+  height: 14px
+  width: 14px
+  border-radius: 50%
+  background: $color-site
+  cursor: pointer
+  -webkit-appearance: none
+  margin-top: -4px
+
+input[type=range].price-range::-ms-fill-upper
+  height: 14px
+  width: 14px
+  border-radius: 50%
+  background: $color-site
+  cursor: pointer
+  -webkit-appearance: none
+  margin-top: -4px
+
+input[type=range].price-range::-ms-thumb
+  height: 14px
+  width: 14px
+  border-radius: 50%
+  background: $color-site
+  cursor: pointer
+  -webkit-appearance: none
+  margin-top: -4px
+
+input[type=range].price-range:focus::-ms-fill-lower
+  background: $color-site
+
+input[type=range].price-range:focus::-ms-fill-upper
+  background: $color-site
+
+/*---------Конец визуализации Range---------*/
+
+.filter-price-text
+  display: flex
+  justify-content: space-between
+  margin-top: 10px
+
+.filter-price-text-p
+  color: #6f6e6e
+  font-size: 14px
+  font-weight: 400
+
+.sort
+  width: 100%
+  height: 50px
+  margin-top: 41px
+  background-color: #f3f3f3
+  display: flex
+  align-items: center
+
+.sort-info-margin
+  margin-left: 9px
+
+.sort-info
+  height: 30px
+  background-color: #ffffff
+  border: 1px solid #ebebeb
+  padding: 0 13px
+
+.sort-info:focus
+  outline: none
+
+.products
+  display: flex
+  justify-content: space-between
+  flex-wrap: wrap
+
+.product-sizes
+  width: 260px
+  height: 280px
+
+.product-nomargin
+  margin-right: 0
+  margin-top: 40px
+
+.products-elements
+  width: 124px
+  display: flex
+  flex-direction: row
+  justify-content: space-between
+
+.products-elements-click
+  width: 57px
+  height: 38px
+  border: 1px solid #ffffff
+  justify-content: center
+  align-items: center
+  display: none
+  box-sizing: border-box
+  margin-top: 8px
+  padding: 9px 9px
+  transition: background-color 0.2s
+  cursor: pointer
+
+.products-elements-click:hover
+  background-color: rgba(255, 255, 255, 0.15)
+
+.products-footer
+  display: flex
+  justify-content: space-between
+  margin-top: 43px
+  align-items: center
+  width: 100%
+
+.products-pagination
+  display: flex
+  justify-content: center
+  align-content: center
+  border-radius: 3px
+  border: 1px solid #ebebeb
+  background-color: #ffffff
+
+.products-pagination-links
+  color: #c4c4c4
+  font-size: 16px
+  font-weight: bold
+  line-height: 26px
+  padding: 0 8px
+  cursor: pointer
+
+.products-pagination-links:hover
+  color: #ef5b70
+
+.products-pagination-links-active
+  color: #ef5b70
+
+.view-button
+  display: flex
+  justify-content: center
+  align-items: center
+  width: 150px
+  height: 44px
+  border-radius: 3px
+  border: 1px solid #ef5b70
+  background-color: #ffffff
+  color: #ef5b70
+  font-size: 16px
+  font-weight: bold
+  transition-property: color, background-color
+  transition-duration: 0.2s
+  outline: none
+  cursor: pointer
+
+.no-items
+  margin-top: 20px
+  font-weight: bold
+  color: #6f6e6e
+
+.no-cart-items
+    margin-top: 20px;
+    color: #222222;
+    font-size: 14px;
+    font-weight: 700;
+
+.view-button:hover
+  color: #ffffff
+  background-color: #ef5b70
+
+.info-shop
+  height: 341px
+  width: 100%
+  background-color: #222224
+  display: flex
+  justify-content: space-around
+  align-items: center
+  margin-top: 110px
+
+.info-shop-delivery
+  text-align: center
+  width: 309px
+
+.info-shop-h3
+  color: #fbfbfb
+  font-size: 20px
+  font-weight: 700
+  margin-top: 32px
+
+.info-shop-p
+  color: #fbfbfb
+  font-size: 14px
+  font-weight: 300
+  margin-top: 17px
+
+.info-shop-sales
+  width: 309px
+  text-align: center
+
+.info-shop-quality
+  width: 309px
+  text-align: center
+
+.product-nomargin-review
+  margin-top: 0
+
+.main-single
+  display: flex
+  flex-direction: column
+  justify-content: center
+  background-color: #ffffff
+
+.single-slider
+  height: 777px
+  display: flex
+  justify-content: space-between
+  border: 1px solid #eaeaea
+  background-color: #f7f7f7
+  position: relative
+  z-index: 1
+
+.single-slider-img
+  margin-top: 11px
+  width: 597px
+  height: 724px
+
+.single-slider-switch
+  width: 47px
+  height: 47px
+  display: flex
+  justify-content: center
+  align-items: center
+  align-self: center
+  color: #ffffff
+  font-size: 24px
+  font-weight: 400
+  background-color: rgba(42, 42, 42, 0.3)
+  transition: background-color 0.2s
+
+.single-slider-switch:hover
+  background-color: rgba(42, 42, 42, 0.6)
+
+.single-infoblock
+  height: 730px
+  background-color: #ffffff
+  position: absolute
+  left: 230px
+  right: 230px
+  top: 691px
+  display: flex
+  flex-direction: column
+  align-items: center
+  border: 1px solid #eaeaea
+
+.single-infoblock-h4
+  color: $color-site
+  font-size: 14px
+  font-weight: 700
+  line-height: 39px
+  text-transform: uppercase
+  margin-top: 62px
+  border-bottom: 1px solid #eaeaea
+
+.single-infoblock-h3
+  color: #4d4d4d
+  font-size: 18px
+  font-weight: 700
+  text-transform: uppercase
+  margin-top: 17px
+
+.single-infoblock-p
+  width: 619px
+  color: #5e5e5e
+  font-size: 14px
+  font-weight: 300
+  line-height: 24px
+  margin-top: 60px
+  text-align: center
+
+.single-infoblock-properties
+  display: flex
+  justify-content: space-around
+  margin-top: 20px
+
+.caption
+  color: #b9b9b9
+  font-size: 14px
+  font-weight: 700
+  text-transform: uppercase
+  margin-left: 44px
+
+.caption-info
+  color: #2f2f2f
+
+.caption:first-child
+  margin-left: 0
+
+.single-infoblock-price
+  color: #ef5b70
+  font-size: 24px
+  font-weight: 700
+  margin-top: 37px
+
+.single-infoblock-hr
+  width: 642px
+  color: #eaeaea
+  margin-top: 43px
+
+.single-infoblock-rectangle
+  width: 63px
+  height: 3px
+  background-color: #ef5b70
+  margin-top: -2px
+
+.single-infoblock-choose
+  display: flex
+  margin-top: 63px
+
+.single-infoblock-choose-select
+  display: flex
+  flex-direction: column
+  margin-right: 53px
+
+.single-infoblock-choose-select:last-child
+  margin-right: 0
+
+.choose-select
+  width: 144px
+  height: 35px
+  padding: 0 15px
+  border: 1px solid #eaeaea
+  background-color: #ffffff
+  color: #bcbcbc
+  font-size: 14px
+  font-weight: 400
+  margin-top: 13px
+
+.single-infoblock-button
+  width: 570px
+  height: 55px
+  display: flex
+  justify-content: center
+  align-items: center
+  border: 1px solid #ef5b70
+  background-color: #ffffff
+  color: #ef5b70
+  font-size: 16px
+  font-weight: 700
+  margin-top: 28px
+  transition-property: color, background-color
+  transition-duration: 0.2s
+
+.single-infoblock-button:hover
+  color: #ffffff
+  background-color: rgba(239, 91, 112, 0.3)
+
+.single-more
+  display: flex
+  flex-direction: column
+  margin-top: 763px
+
+.single-more-h4
+  color: #4d4d4d
+  font-size: 24px
+  font-weight: 700
+  text-transform: uppercase
+  text-align: center
+
+.single-more-products
+  display: flex
+  justify-content: space-between
+  margin-top: 72px
+
+.single-nomargin
+  margin-right: 0
+
+.single-size
+  width: 261px
+  height: 280px
+
+.single-review-margin
+  margin-top: 73px
+
+.notice-block
+  position: fixed
+  top: 20px
+  right: 40px
+  height: auto
+
+.error
+  width: 250px
+  margin-top: 10px
+  height: auto
+  position: relative
+  background-color: #ff22229e
+  padding: 5px 0px 5px 15px
+  &-item-text
+    color: white
+    padding-right: 20px
+    &-bold
+      color: white
+      font-weight: 700
+
+.success
+  width: 250px
+  height: auto
+  margin-top: 10px
+  position: relative
+  background-color: #00930b9e
+  padding: 5px 0px 5px 15px
+  &-item-text
+    color: white
+    padding-right: 20px
+    &-bold
+      color: white
+      font-weight: 700
+
+.notice-item-btn
+  width: 20px
+  height: 20px
+  outline: none
+  border: none
+  cursor: pointer
+  background: none
+  color: white
+  font-weight: 700
+  font-size: 10px
+  text-align: center
+
+.notice-info
+  display: flex
+  justify-content: space-between
+
+.notice-leave-active 
+  transition: opacity .5s
+
+.notice-leave-to
+  opacity: 0

@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link href="https://fonts.googleapis.com/css?family=Lato:100,300,300i,400,700,900&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+	<script type="text/javascript"> (function () {
+		var css = document.createElement('link');
+		css.href = 'https://use.fontawesome.com/releases/v5.1.0/css/all.css';
+		css.rel = 'stylesheet';
+		css.type = 'text/css';
+		document.getElementsByTagName('head')[0].appendChild(css);
+	})(); </script>
+	<link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+	<div id="app">
+		<header class="header">
+			<div class="container header__content">
+				<div class="header__left">
+					<a class="logo" href="index.html"><img class="logo__img" src="img/logo.png" alt="logo">BRAN<span class='logo-last-letter'>D</span></a>
+					<form class="header__form" action="#">
+						<div class="browse">
+							<a href="#" id='browse'>Browse<img src="img/arrow-down.png" alt="" class='arrow-down'></a>
+							<div class="browse-drop">
+								<h3 class="browse-drop-h3">Women</h3>
+								<ul class="browse-drop-ul">
+									<li class="browse-drop-li"><a href="#" class="browse-drop-link">Dresses</a></li>
+									<li class="browse-drop-li"><a href="#" class="browse-drop-link">Tops</a></li>
+									<li class="browse-drop-li"><a href="#" class="browse-drop-link">Sweaters/Knits</a></li>
+									<li class="browse-drop-li"><a href="#" class="browse-drop-link">Jackets/Coats</a></li>
+									<li class="browse-drop-li"><a href="#" class="browse-drop-link">Blazers</a></li>
+									<li class="browse-drop-li"><a href="#" class="browse-drop-link">Denim</a></li>
+									<li class="browse-drop-li"><a href="#" class="browse-drop-link">Leggings/Pants</a></li>
+									<li class="browse-drop-li"><a href="#" class="browse-drop-link">Skirts/Shorts</a></li>
+									<li class="browse-drop-li"><a href="#" class="browse-drop-link">Accessories</a></li>
+								</ul>
+								<h3 class="browse-drop-h3">Men</h3>
+								<ul class="browse-drop-ul">
+									<li class="browse-drop-li"><a href="#" class="browse-drop-link">Tees/Tank tops</a></li>
+									<li class="browse-drop-li"><a href="#" class="browse-drop-link">Shirts/Polos</a></li>
+									<li class="browse-drop-li"><a href="#" class="browse-drop-link">Sweaters</a></li>
+									<li class="browse-drop-li"><a href="#" class="browse-drop-link">Sweatshirts/Hoodies</a></li>
+									<li class="browse-drop-li"><a href="#" class="browse-drop-link">Blazers</a></li>
+									<li class="browse-drop-li"><a href="#" class="browse-drop-link">Jackets/vests</a></li>
+								</ul>
+							</div>
+						</div>
+						<input type="text" id='search-text' @keyup.enter="filterItems()" placeholder="Search for Item..." v-model="searchText">
+						<a id='search-button' @click="filterItems()"><img src="img/search-button.png" alt=""></a>
+					</form>
+				</div>
+				<div class="header__right">
+					<cart ref="cart"></cart>
+					<a class="button-account" href="#">My Account <img src="img/arrow-down-white.png" alt="" class="arrow-down"></a>
+				</div>
+			</div>
+		</header>
+		<nav class="nav">
+			<div class="container nav__content">
+				<ul class="menu">
+					<li class="menu__list"> <a href="index.html" class="menu__link">Home</a></li>
+					<li class="menu__list">
+						<a href="product.html" class="menu__link menu__link-active">Man</a>
+						<div class="menu-drop">
+							<div class="menu-drop-width">
+								<h3 class="menu-drop-h3">Women</h3>
+								<ul class="browse-drop-ul">
+									<li class="browse-drop-li"><a href="product.html" class="browse-drop-link">Dresses</a></li>
+									<li class="browse-drop-li"><a href="product.html" class="browse-drop-link">Tops</a></li>
+									<li class="browse-drop-li"><a href="product.html" class="browse-drop-link">Sweaters/Knits</a></li>
+									<li class="browse-drop-li"><a href="product.html" class="browse-drop-link">Jackets/Coats</a></li>
+									<li class="browse-drop-li"><a href="product.html" class="browse-drop-link">Blazers</a></li>
+									<li class="browse-drop-li"><a href="product.html" class="browse-drop-link">Denim</a></li>
+									<li class="browse-drop-li"><a href="product.html" class="browse-drop-link">Leggings/Pants</a></li>
+									<li class="browse-drop-li"><a href="product.html" class="browse-drop-link">Skirts/Shorts</a></li>
+									<li class="browse-drop-li"><a href="product.html" class="browse-drop-link">Accessories</a></li>
+								</ul>
+							</div>
+							<div class="menu-drop-width">
+								<h3 class="menu-drop-h3">Women</h3>
+								<ul class="browse-drop-ul">
+									<li class="browse-drop-li"><a href="product.html" class="browse-drop-link">Dresses</a></li>
+									<li class="browse-drop-li"><a href="product.html" class="browse-drop-link">Tops</a></li>
+									<li class="browse-drop-li"><a href="product.html" class="browse-drop-link">Sweaters/Knits</a></li>
+									<li class="browse-drop-li"><a href="product.html" class="browse-drop-link">Jackets/Coats</a></li>
+								</ul>
+								<h3 class="menu-drop-h3">Women</h3>
+								<ul class="browse-drop-ul">
+									<li class="browse-drop-li"><a href="product.html" class="browse-drop-link">Dresses</a></li>
+									<li class="browse-drop-li"><a href="product.html" class="browse-drop-link">Tops</a></li>
+									<li class="browse-drop-li"><a href="product.html" class="browse-drop-link">Sweaters/Knits</a></li>
+								</ul>
+							</div>
+							<div class="menu-drop-width">
+								<h3 class="menu-drop-h3">Women</h3>
+								<ul class="browse-drop-ul">
+									<li class="browse-drop-li"><a href="product.html" class="browse-drop-link">Dresses</a></li>
+									<li class="browse-drop-li"><a href="product.html" class="browse-drop-link">Tops</a></li>
+									<li class="browse-drop-li"><a href="product.html" class="browse-drop-link">Sweaters/Knits</a></li>
+									<li class="browse-drop-li"><a href="product.html" class="browse-drop-link">Jackets/Coats</a></li>
+								</ul>
+								<a href="product.html"><img src="img/drop-img.jpg" alt="" class='menu-drop-img'></a>
+							</div>
+						</div>
+					</li>
+					<li class="menu__list">
+						<a href="product.html" class="menu__link">Women</a>
+						<div class="menu-drop">
+							<div class="menu-drop-width">
+								<h3 class="menu-drop-h3">Women</h3>
+								<ul class="browse-drop-ul">
+									<li class="browse-drop-li"><a href="product.html" class="browse-drop-link">Dresses</a></li>
+									<li class="browse-drop-li"><a href="product.html" class="browse-drop-link">Tops</a></li>
+									<li class="browse-drop-li"><a href="product.html" class="browse-drop-link">Sweaters/Knits</a></li>
+									<li class="browse-drop-li"><a href="product.html" class="browse-drop-link">Jackets/Coats</a></li>
+									<li class="browse-drop-li"><a href="product.html" class="browse-drop-link">Blazers</a></li>
+									<li class="browse-drop-li"><a href="product.html" class="browse-drop-link">Denim</a></li>
+									<li class="browse-drop-li"><a href="product.html" class="browse-drop-link">Leggings/Pants</a></li>
+									<li class="browse-drop-li"><a href="product.html" class="browse-drop-link">Skirts/Shorts</a></li>
+									<li class="browse-drop-li"><a href="product.html" class="browse-drop-link">Accessories</a></li>
+								</ul>
+							</div>
+							<div class="menu-drop-width">
+								<h3 class="menu-drop-h3">Women</h3>
+								<ul class="browse-drop-ul">
+									<li class="browse-drop-li"><a href="product.html" class="browse-drop-link">Dresses</a></li>
+									<li class="browse-drop-li"><a href="product.html" class="browse-drop-link">Tops</a></li>
+									<li class="browse-drop-li"><a href="product.html" class="browse-drop-link">Sweaters/Knits</a></li>
+									<li class="browse-drop-li"><a href="product.html" class="browse-drop-link">Jackets/Coats</a></li>
+								</ul>
+								<h3 class="menu-drop-h3">Women</h3>
+								<ul class="browse-drop-ul">
+									<li class="browse-drop-li"><a href="product.html" class="browse-drop-link">Dresses</a></li>
+									<li class="browse-drop-li"><a href="product.html" class="browse-drop-link">Tops</a></li>
+									<li class="browse-drop-li"><a href="product.html" class="browse-drop-link">Sweaters/Knits</a></li>
+								</ul>
+							</div>
+							<div class="menu-drop-width">
+								<h3 class="menu-drop-h3">Women</h3>
+								<ul class="browse-drop-ul">
+									<li class="browse-drop-li"><a href="product.html" class="browse-drop-link">Dresses</a></li>
+									<li class="browse-drop-li"><a href="product.html" class="browse-drop-link">Tops</a></li>
+									<li class="browse-drop-li"><a href="product.html" class="browse-drop-link">Sweaters/Knits</a></li>
+									<li class="browse-drop-li"><a href="product.html" class="browse-drop-link">Jackets/Coats</a></li>
+								</ul>
+								<a href="product.html"><img src="img/drop-img.jpg" alt="" class='menu-drop-img'></a>
+							</div>
+						</div>
+					</li>
+					<li class="menu__list">
+						<a href="product.html" class="menu__link">Kids</a>
+						<div class="menu-drop">
+							<div class="menu-drop-width">
+								<h3 class="menu-drop-h3">Women</h3>
+								<ul class="browse-drop-ul">
+									<li class="browse-drop-li"><a href="product.html" class="browse-drop-link">Dresses</a></li>
+									<li class="browse-drop-li"><a href="product.html" class="browse-drop-link">Tops</a></li>
+									<li class="browse-drop-li"><a href="product.html" class="browse-drop-link">Sweaters/Knits</a></li>
+									<li class="browse-drop-li"><a href="product.html" class="browse-drop-link">Jackets/Coats</a></li>
+									<li class="browse-drop-li"><a href="product.html" class="browse-drop-link">Blazers</a></li>
+									<li class="browse-drop-li"><a href="product.html" class="browse-drop-link">Denim</a></li>
+									<li class="browse-drop-li"><a href="product.html" class="browse-drop-link">Leggings/Pants</a></li>
+									<li class="browse-drop-li"><a href="product.html" class="browse-drop-link">Skirts/Shorts</a></li>
+									<li class="browse-drop-li"><a href="product.html" class="browse-drop-link">Accessories</a></li>
+								</ul>
+							</div>
+							<div class="menu-drop-width">
+								<h3 class="menu-drop-h3">Women</h3>
+								<ul class="browse-drop-ul">
+									<li class="browse-drop-li"><a href="product.html" class="browse-drop-link">Dresses</a></li>
+									<li class="browse-drop-li"><a href="product.html" class="browse-drop-link">Tops</a></li>
+									<li class="browse-drop-li"><a href="product.html" class="browse-drop-link">Sweaters/Knits</a></li>
+									<li class="browse-drop-li"><a href="product.html" class="browse-drop-link">Jackets/Coats</a></li>
+								</ul>
+								<h3 class="menu-drop-h3">Women</h3>
+								<ul class="browse-drop-ul">
+									<li class="browse-drop-li"><a href="product.html" class="browse-drop-link">Dresses</a></li>
+									<li class="browse-drop-li"><a href="product.html" class="browse-drop-link">Tops</a></li>
+									<li class="browse-drop-li"><a href="product.html" class="browse-drop-link">Sweaters/Knits</a></li>
+								</ul>
+							</div>
+							<div class="menu-drop-width">
+								<h3 class="menu-drop-h3">Women</h3>
+								<ul class="browse-drop-ul">
+									<li class="browse-drop-li"><a href="product.html" class="browse-drop-link">Dresses</a></li>
+									<li class="browse-drop-li"><a href="product.html" class="browse-drop-link">Tops</a></li>
+									<li class="browse-drop-li"><a href="product.html" class="browse-drop-link">Sweaters/Knits</a></li>
+									<li class="browse-drop-li"><a href="product.html" class="browse-drop-link">Jackets/Coats</a></li>
+								</ul>
+								<a href="product.html"><img src="img/drop-img.jpg" alt="" class='menu-drop-img'></a>
+							</div>
+						</div>
+					</li>
+					<li class="menu__list">
+						<a href="product.html" class="menu__link">Accoseriese</a>
+						<div class="menu-drop menu-drop-last">
+							<div class="menu-drop-width">
+								<h3 class="menu-drop-h3">Women</h3>
+								<ul class="browse-drop-ul">
+									<li class="browse-drop-li"><a href="product.html" class="browse-drop-link">Dresses</a></li>
+									<li class="browse-drop-li"><a href="product.html" class="browse-drop-link">Tops</a></li>
+									<li class="browse-drop-li"><a href="product.html" class="browse-drop-link">Sweaters/Knits</a></li>
+									<li class="browse-drop-li"><a href="product.html" class="browse-drop-link">Jackets/Coats</a></li>
+									<li class="browse-drop-li"><a href="product.html" class="browse-drop-link">Blazers</a></li>
+									<li class="browse-drop-li"><a href="product.html" class="browse-drop-link">Denim</a></li>
+									<li class="browse-drop-li"><a href="product.html" class="browse-drop-link">Leggings/Pants</a></li>
+									<li class="browse-drop-li"><a href="product.html" class="browse-drop-link">Skirts/Shorts</a></li>
+									<li class="browse-drop-li"><a href="product.html" class="browse-drop-link">Accessories</a></li>
+								</ul>
+							</div>
+							<div class="menu-drop-width">
+								<h3 class="menu-drop-h3">Women</h3>
+								<ul class="browse-drop-ul">
+									<li class="browse-drop-li"><a href="product.html" class="browse-drop-link">Dresses</a></li>
+									<li class="browse-drop-li"><a href="product.html" class="browse-drop-link">Tops</a></li>
+									<li class="browse-drop-li"><a href="product.html" class="browse-drop-link">Sweaters/Knits</a></li>
+									<li class="browse-drop-li"><a href="product.html" class="browse-drop-link">Jackets/Coats</a></li>
+								</ul>
+								<h3 class="menu-drop-h3">Women</h3>
+								<ul class="browse-drop-ul">
+									<li class="browse-drop-li"><a href="product.html" class="browse-drop-link">Dresses</a></li>
+									<li class="browse-drop-li"><a href="product.html" class="browse-drop-link">Tops</a></li>
+									<li class="browse-drop-li"><a href="product.html" class="browse-drop-link">Sweaters/Knits</a></li>
+								</ul>
+							</div>
+							<div class="menu-drop-width">
+								<h3 class="menu-drop-h3">Women</h3>
+								<ul class="browse-drop-ul">
+									<li class="browse-drop-li"><a href="product.html" class="browse-drop-link">Dresses</a></li>
+									<li class="browse-drop-li"><a href="product.html" class="browse-drop-link">Tops</a></li>
+									<li class="browse-drop-li"><a href="product.html" class="browse-drop-link">Sweaters/Knits</a></li>
+									<li class="browse-drop-li"><a href="product.html" class="browse-drop-link">Jackets/Coats</a></li>
+								</ul>
+								<a href="product.html"><img src="img/drop-img.jpg" alt="" class='menu-drop-img'></a>
+							</div>
+						</div>
+					</li>
+					<li class="menu__list">
+						<a href="product.html" class="menu__link">Featured</a>
+						<div class="menu-drop menu-drop-last">
+							<div class="menu-drop-width">
+								<h3 class="menu-drop-h3">Women</h3>
+								<ul class="browse-drop-ul">
+									<li class="browse-drop-li"><a href="product.html" class="browse-drop-link">Dresses</a></li>
+									<li class="browse-drop-li"><a href="product.html" class="browse-drop-link">Tops</a></li>
+									<li class="browse-drop-li"><a href="product.html" class="browse-drop-link">Sweaters/Knits</a></li>
+									<li class="browse-drop-li"><a href="product.html" class="browse-drop-link">Jackets/Coats</a></li>
+									<li class="browse-drop-li"><a href="product.html" class="browse-drop-link">Blazers</a></li>
+									<li class="browse-drop-li"><a href="product.html" class="browse-drop-link">Denim</a></li>
+									<li class="browse-drop-li"><a href="product.html" class="browse-drop-link">Leggings/Pants</a></li>
+									<li class="browse-drop-li"><a href="product.html" class="browse-drop-link">Skirts/Shorts</a></li>
+									<li class="browse-drop-li"><a href="product.html" class="browse-drop-link">Accessories</a></li>
+								</ul>
+							</div>
+							<div class="menu-drop-width">
+								<h3 class="menu-drop-h3">Women</h3>
+								<ul class="browse-drop-ul">
+									<li class="browse-drop-li"><a href="product.html" class="browse-drop-link">Dresses</a></li>
+									<li class="browse-drop-li"><a href="product.html" class="browse-drop-link">Tops</a></li>
+									<li class="browse-drop-li"><a href="product.html" class="browse-drop-link">Sweaters/Knits</a></li>
+									<li class="browse-drop-li"><a href="product.html" class="browse-drop-link">Jackets/Coats</a></li>
+								</ul>
+								<h3 class="menu-drop-h3">Women</h3>
+								<ul class="browse-drop-ul">
+									<li class="browse-drop-li"><a href="product.html" class="browse-drop-link">Dresses</a></li>
+									<li class="browse-drop-li"><a href="product.html" class="browse-drop-link">Tops</a></li>
+									<li class="browse-drop-li"><a href="product.html" class="browse-drop-link">Sweaters/Knits</a></li>
+								</ul>
+							</div>
+							<div class="menu-drop-width">
+								<h3 class="menu-drop-h3">Women</h3>
+								<ul class="browse-drop-ul">
+									<li class="browse-drop-li"><a href="product.html" class="browse-drop-link">Dresses</a></li>
+									<li class="browse-drop-li"><a href="product.html" class="browse-drop-link">Tops</a></li>
+									<li class="browse-drop-li"><a href="product.html" class="browse-drop-link">Sweaters/Knits</a></li>
+									<li class="browse-drop-li"><a href="product.html" class="browse-drop-link">Jackets/Coats</a></li>
+								</ul>
+								<a href="product.html"><img src="img/drop-img.jpg" alt="" class='menu-drop-img'></a>
+							</div>
+						</div>
+					</li>
+					<li class="menu__list">
+						<a href="product.html" class="menu__link">Hot Deals</a>
+						<div class="menu-drop menu-drop-last">
+							<div class="menu-drop-width">
+								<h3 class="menu-drop-h3">Women</h3>
+								<ul class="browse-drop-ul">
+									<li class="browse-drop-li"><a href="product.html" class="browse-drop-link">Dresses</a></li>
+									<li class="browse-drop-li"><a href="product.html" class="browse-drop-link">Tops</a></li>
+									<li class="browse-drop-li"><a href="product.html" class="browse-drop-link">Sweaters/Knits</a></li>
+									<li class="browse-drop-li"><a href="product.html" class="browse-drop-link">Jackets/Coats</a></li>
+									<li class="browse-drop-li"><a href="product.html" class="browse-drop-link">Blazers</a></li>
+									<li class="browse-drop-li"><a href="product.html" class="browse-drop-link">Denim</a></li>
+									<li class="browse-drop-li"><a href="product.html" class="browse-drop-link">Leggings/Pants</a></li>
+									<li class="browse-drop-li"><a href="product.html" class="browse-drop-link">Skirts/Shorts</a></li>
+									<li class="browse-drop-li"><a href="product.html" class="browse-drop-link">Accessories</a></li>
+								</ul>
+							</div>
+							<div class="menu-drop-width">
+								<h3 class="menu-drop-h3">Women</h3>
+								<ul class="browse-drop-ul">
+									<li class="browse-drop-li"><a href="product.html" class="browse-drop-link">Dresses</a></li>
+									<li class="browse-drop-li"><a href="product.html" class="browse-drop-link">Tops</a></li>
+									<li class="browse-drop-li"><a href="product.html" class="browse-drop-link">Sweaters/Knits</a></li>
+									<li class="browse-drop-li"><a href="product.html" class="browse-drop-link">Jackets/Coats</a></li>
+								</ul>
+								<h3 class="menu-drop-h3">Women</h3>
+								<ul class="browse-drop-ul">
+									<li class="browse-drop-li"><a href="product.html" class="browse-drop-link">Dresses</a></li>
+									<li class="browse-drop-li"><a href="product.html" class="browse-drop-link">Tops</a></li>
+									<li class="browse-drop-li"><a href="product.html" class="browse-drop-link">Sweaters/Knits</a></li>
+								</ul>
+							</div>
+							<div class="menu-drop-width">
+								<h3 class="menu-drop-h3">Women</h3>
+								<ul class="browse-drop-ul">
+									<li class="browse-drop-li"><a href="product.html" class="browse-drop-link">Dresses</a></li>
+									<li class="browse-drop-li"><a href="product.html" class="browse-drop-link">Tops</a></li>
+									<li class="browse-drop-li"><a href="product.html" class="browse-drop-link">Sweaters/Knits</a></li>
+									<li class="browse-drop-li"><a href="product.html" class="browse-drop-link">Jackets/Coats</a></li>
+								</ul>
+								<a href="product.html"><img src="img/drop-img.jpg" alt="" class='menu-drop-img'></a>
+							</div>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</nav>
+		<div class="way padding-site">
+			<h3 class="way-h3">New Arrivals</h3>
+			<span class="way-span">
+				<a href="index.html" class='way-link'>Home</a>
+				/
+				<a href="product.html" class='way-link'>Men</a>
+				/
+				<a href="#" class='way-link-active'>New Arrivals</a>
+			</span>
+		</div>
+		<div class="main-product padding-site">
+			<div class="main-left">
+				<details class='main-left-details' open>
+					<summary>
+						<div class="main-left-details-rectangle"></div>
+						Category
+					</summary>
+					<ul class="main-left-ul">
+						<li class="main-left-li"><a href="#" class="main-left-links">Accessories</a></li>
+						<li class="main-left-li"><a href="#" class="main-left-links">Bags</a></li>
+						<li class="main-left-li"><a href="#" class="main-left-links">Denim</a></li>
+						<li class="main-left-li"><a href="#" class="main-left-links">Hoodies &amp; Sweatshirts</a></li>
+						<li class="main-left-li"><a href="#" class="main-left-links">Jackets &amp; Coats</a></li>
+						<li class="main-left-li"><a href="#" class="main-left-links">Pants</a></li>
+						<li class="main-left-li"><a href="#" class="main-left-links">Polos</a></li>
+						<li class="main-left-li"><a href="#" class="main-left-links">Shirts</a></li>
+						<li class="main-left-li"><a href="#" class="main-left-links">Shoes</a></li>
+						<li class="main-left-li"><a href="#" class="main-left-links">Shorts</a></li>
+						<li class="main-left-li"><a href="#" class="main-left-links">Sweaters &amp; Knits</a></li>
+						<li class="main-left-li"><a href="#" class="main-left-links">T-Shirts</a></li>
+						<li class="main-left-li"><a href="#" class="main-left-links">Tanks</a></li>
+					</ul>
+				</details>
+				<details class='main-left-details'>
+					<summary>
+						<div class="main-left-details-rectangle"></div>
+						BRAND
+					</summary>
+					<ul class="main-left-ul">
+						<li class="main-left-li"><a href="#" class="main-left-links">Accessories</a></li>
+						<li class="main-left-li"><a href="#" class="main-left-links">Bags</a></li>
+						<li class="main-left-li"><a href="#" class="main-left-links">Denim</a></li>
+						<li class="main-left-li"><a href="#" class="main-left-links">Hoodies &amp; Sweatshirts</a></li>
+						<li class="main-left-li"><a href="#" class="main-left-links">Jackets &amp; Coats</a></li>
+						<li class="main-left-li"><a href="#" class="main-left-links">Pants</a></li>
+						<li class="main-left-li"><a href="#" class="main-left-links">Polos</a></li>
+						<li class="main-left-li"><a href="#" class="main-left-links">Shirts</a></li>
+						<li class="main-left-li"><a href="#" class="main-left-links">Shoes</a></li>
+						<li class="main-left-li"><a href="#" class="main-left-links">Shorts</a></li>
+						<li class="main-left-li"><a href="#" class="main-left-links">Sweaters &amp; Knits</a></li>
+						<li class="main-left-li"><a href="#" class="main-left-links">T-Shirts</a></li>
+						<li class="main-left-li"><a href="#" class="main-left-links">Tanks</a></li>
+					</ul>
+				</details>
+				<details class='main-left-details'>
+					<summary>
+						<div class="main-left-details-rectangle"></div>
+						dESIGNER
+					</summary>
+					<ul class="main-left-ul">
+						<li class="main-left-li"><a href="#" class="main-left-links">Accessories</a></li>
+						<li class="main-left-li"><a href="#" class="main-left-links">Bags</a></li>
+						<li class="main-left-li"><a href="#" class="main-left-links">Denim</a></li>
+						<li class="main-left-li"><a href="#" class="main-left-links">Hoodies &amp; Sweatshirts</a></li>
+						<li class="main-left-li"><a href="#" class="main-left-links">Jackets &amp; Coats</a></li>
+						<li class="main-left-li"><a href="#" class="main-left-links">Pants</a></li>
+						<li class="main-left-li"><a href="#" class="main-left-links">Polos</a></li>
+						<li class="main-left-li"><a href="#" class="main-left-links">Shirts</a></li>
+						<li class="main-left-li"><a href="#" class="main-left-links">Shoes</a></li>
+						<li class="main-left-li"><a href="#" class="main-left-links">Shorts</a></li>
+						<li class="main-left-li"><a href="#" class="main-left-links">Sweaters &amp; Knits</a></li>
+						<li class="main-left-li"><a href="#" class="main-left-links">T-Shirts</a></li>
+						<li class="main-left-li"><a href="#" class="main-left-links">Tanks</a></li>
+					</ul>
+				</details>
+			</div>
+			<div class="main-right">
+				<div class="filter">
+					<div class="filter-trending">
+						<h4 class="filter-h4">Trending now</h4>
+						<div class="filter-trending-links">
+							<a href="#" class="filter-trending-links-a">Bohemian</a>
+							|
+							<a href="#" class="filter-trending-links-a">Floral</a>
+							|
+							<a href="#" class="filter-trending-links-a">Lace</a>
+							<a href="#" class="filter-trending-links-a">Floral</a>
+							|
+							<a href="#" class="filter-trending-links-a">Lace</a>
+							|
+							<a href="#" class="filter-trending-links-a">Bohemian</a>
+						</div>
+					</div>
+					<div class="filter-size">
+						<h4 class="filter-h4">Size</h4>
+						<input type="checkbox" id='size-checkbox1'><label for="size-checkbox1" class="size-checkbox">XXS</label>
+						<input type="checkbox" id='size-checkbox2'><label for="size-checkbox2" class="size-checkbox">XS</label>
+						<input type="checkbox" id='size-checkbox3'><label for="size-checkbox3" class="size-checkbox">S</label>
+						<input type="checkbox" id='size-checkbox4'><label for="size-checkbox4" class="size-checkbox">M</label>
+						<input type="checkbox" id='size-checkbox5'><label for="size-checkbox5" class="size-checkbox">L</label>
+						<input type="checkbox" id='size-checkbox6'><label for="size-checkbox6" class="size-checkbox">XL</label>
+						<input type="checkbox" id='size-checkbox7'><label for="size-checkbox7" class="size-checkbox">XXL</label>
+					</div>
+					<div class="filter-price">
+						<h4 class="filter-h4">pRICE</h4>
+						<input type="range" min="52" max="400" step="1" class='price-range'>
+						<div class="filter-price-text">
+							<p class="filter-price-text-p">$52</p>
+							<p class="filter-price-text-p">$400</p>
+						</div>
+					</div>
+				</div>
+				<div class="sort">
+					<button class='sort-info sort-info-margin'>Sort By</button>
+					<select name="Name" class="sort-info" @change="changeItems()" v-model="sortOption">
+						<option value='none'>None</option>
+						<option value='name'>Name</option>
+						<option value="rating">Rating</option>
+						<option value="popularity">Popularity</option>
+						<option value="price">Price</option>
+					</select>
+					<button class='sort-info sort-info-margin'>Show</button>
+					<select v-model="quantityItems" @change="changeItems()" name="Show" class="sort-info">
+						<option value="9" selected>09</option>
+						<option value="8">08</option>
+						<option value="7">07</option>
+						<option value="6">06</option>
+						<option value="5">05</option>
+						<option value="4">04</option>
+					</select>
+				</div>
+				<products ref='products'></products>
+			</div>
+		</div>
+		<div class="info-shop">
+			<div class="info-shop-delivery">
+				<img src="img/delivery-icon.svg" alt="">
+				<h3 class="info-shop-h3">Free Delivery</h3>
+				<p class="info-shop-p">Worldwide delivery on all. Authorit tively morph next-generation innov tion with extensive models.</p>
+			</div>
+			<div class="info-shop-sales">
+				<img src="img/sales-icon.svg" alt="">
+				<h3 class="info-shop-h3">Sales &amp; discounts</h3>
+				<p class="info-shop-p">Worldwide delivery on all. Authorit tively morph next-generation innov tion with extensive models.</p>
+			</div>
+			<div class="info-shop-quality">
+				<img src="img/quality-icon.svg" alt="">
+				<h3 class="info-shop-h3">Quality assurance</h3>
+				<p class="info-shop-p">Worldwide delivery on all. Authorit tively morph next-generation innov tion with extensive models.</p>
+			</div>
+		</div>
+		<footer>
+			<div class="review">
+				<div class="review-left-block">
+					<img src="img/bin_photo.png" alt="" class="review-photo">
+					<div class="review-text">
+						<p class="review-p">“Vestibulum quis porttitor dui! Quisque viverra nunc mi,
+							a pulvinar purus condimentum a. Aliquam condimentum mattis neque sed pretium”</p>
+						<h5 class="review-h5"><span class="review-pink">Bin Burhan</span>
+							Dhaka, Bd</h5>
+						<div class="pagination">
+							<a href="#" class="pagination-line"></a>
+							<a href="#" class="pagination-line pagination-line-active"></a>
+							<a href="#" class="pagination-line"></a>
+						</div>
+					</div>
+				</div>
+				<div class="review-rectangle"></div>
+				<subscribe></subscribe>
+			</div>
+			<div class="info padding-site container">
+				<div class="info-block">
+					<a class="logo logo-footer" href="#"><img class="logo__img" src="img/logo.png" alt="logo">BRAN<span class='logo-last-letter'>D</span></a>
+					<p class="info-block-p">Objectively transition extensive data rather than cross functional solutions. Monotonectally syndicate multidisciplinary materials before go forward benefits. Intrinsicly syndicate an expanded array of processes and cross-unit partnerships. <br> <br>
+						Efficiently plagiarize 24/365 action items and focused infomediaries.
+						Distinctively seize superior initiatives for wireless technologies. Dynamically optimize.</p>
+				</div>
+				<div class="info-block">
+					<h3 class="info-block-h3">COMPANY</h3>
+					<ul class="info-block-links">
+						<li class="info-block-li"><a href="index.html" class="info-block-a">Home</a></li>
+						<li class="info-block-li"><a href="#" class="info-block-a">Shop</a></li>
+						<li class="info-block-li"><a href="#" class="info-block-a">About</a></li>
+						<li class="info-block-li"><a href="#" class="info-block-a">How It Works</a></li>
+						<li class="info-block-li"><a href="#" class="info-block-a">Contact</a></li>
+					</ul>
+				</div>
+				<div class="info-block">
+					<h3 class="info-block-h3">INFORMATION</h3>
+					<ul class="info-block-links">
+						<li class="info-block-li"><a href="#" class="info-block-a">Tearms &amp; Condition</a></li>
+						<li class="info-block-li"><a href="#" class="info-block-a">Privacy Policy</a></li>
+						<li class="info-block-li"><a href="#" class="info-block-a">How to Buy</a></li>
+						<li class="info-block-li"><a href="#" class="info-block-a">How to Sell</a></li>
+						<li class="info-block-li"><a href="#" class="info-block-a">Promotion</a></li>
+					</ul>
+				</div>
+				<div class="info-block">
+					<h3 class="info-block-h3">SHOP CATEGORY</h3>
+					<ul class="info-block-links">
+						<li class="info-block-li"><a href="#" class="info-block-a">Men</a></li>
+						<li class="info-block-li"><a href="#" class="info-block-a">Women</a></li>
+						<li class="info-block-li"><a href="#" class="info-block-a">Child</a></li>
+						<li class="info-block-li"><a href="#" class="info-block-a">Apparel</a></li>
+						<li class="info-block-li"><a href="#" class="info-block-a">Brows All</a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="footer padding-site">
+				<p class="copyright">&copy; 2017 Brand All Rights Reserved.</p>
+				<div class="social-icon">
+					<a href="#"><i class="fab fa-facebook-f"></i></a>
+					<a href="#"><i class="fab fa-twitter"></i></a>
+					<a href="#"><i class="fab fa-linkedin-in"></i></a>
+					<a href="#"><i class="fab fa-pinterest-p"></i></a>
+					<a href="#"><i class="fab fa-google-plus-g"></i></a>
+				</div>
+			</div>
+		</footer>
+		<notices ref='notice'></notices>
+	</div>
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	<script src="js/products.js"></script>
+	<script src="js/cart.js"></script>
+	<script src="js/notifications.js"></script>
+	<script src="js/subscribe.js"></script>
+	<script src="js/main.js"></script>
+</body>
+
+</html>
