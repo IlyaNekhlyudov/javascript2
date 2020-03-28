@@ -1,0 +1,207 @@
+.shopcart
+  display: flex
+  flex-direction: column
+  margin-top: 90px
+  &-cross
+    margin-top: 0 !important
+    margin-left: 0 !important
+    margin-right: 18px
+  &-title
+    display: flex
+    flex-direction: row
+    justify-content: space-between
+    border-bottom: 1px solid #eaeaea
+    &-h4
+      color: #222222
+      font-size: 13px
+      font-weight: 700
+      line-height: 50px
+      text-transform: uppercase
+  &-block
+    display: flex
+    flex-direction: row
+    justify-content: space-between
+    align-items: center
+    border-bottom: 1px solid #eaeaea
+    height: 115px
+    margin-top: 22px
+    padding-bottom: 25px
+    &-simply
+      color: #656565
+      font-size: 13px
+      font-weight: 400
+    &-quantity
+      padding: 10px 0
+      width: 54px
+      text-align: center
+      color: #656565
+      font-size: 13px
+      font-weight: 400
+      margin-left: 7px
+    &-info
+      display: flex
+      flex-direction: row
+      &-img
+        width: 100px
+        height: 115px
+      &-text
+        display: flex
+        flex-direction: column
+        height: 115px
+        margin-left: 21px
+        &-a
+          display: block
+          height: 115px
+        &-h4
+          color: #222222
+          font-size: 13px
+          font-weight: 700
+          text-transform: uppercase
+          margin-top: 13px
+          margin-bottom: 38px
+        &-span
+          font-size: 13px
+          color: #575757
+          font-weight: 400
+          &-inside
+            font-weight: 300
+            color: #6f6e6e
+
+.buttons-shopcart
+  display: flex
+  flex-direction: row
+  justify-content: space-between
+  margin-top: 44px
+  &-a
+    display: block
+    padding: 0 39px
+    height: 50px
+    border: 1px solid #eaeaea
+    background-color: #ffffff
+    line-height: 50px
+    color: #4a4a4a
+    font-size: 14px
+    font-weight: 700
+    text-transform: uppercase
+    transition-property: color, background-color
+    transition-duration: 0.3s
+    cursor: pointer
+    &:hover
+      background-color: #4a4a4a
+      color: white
+
+.shopcart-order
+  display: flex
+  flex-direction: row
+  justify-content: space-between
+  margin-top: 63px
+  flex-wrap: wrap
+  &-submit
+    height: 35px
+    line-height: 35px
+    padding: 0 15px
+    box-sizing: border-box
+    border: 1px solid #eaeaea
+    background-color: #ffffff
+    color: #4a4a4a
+    font-size: 11px
+    font-weight: 700
+    text-transform: uppercase
+    margin-top: 23px
+    outline: none
+    transition-property: background-color, color
+    transition-duration: 0.3s
+    &:hover
+      background-color: #4a4a4a
+      color: #ffffff
+      cursor: pointer
+    &:active
+      background-color: #7a7a7a
+      color: #ffffff
+  &-address
+    display: flex
+    flex-direction: column
+    &-h4
+      color: #222222
+      font-size: 16px
+      font-weight: 700
+      text-transform: uppercase
+
+#shopcart-order-address-select
+  width: 355px
+  height: 45px
+  padding-left: 18px
+  padding-right: 18px
+  color: #b1b1b1
+  font-size: 13px
+  font-weight: 300
+  margin-top: 22px
+  border: 1px solid #eaeaea
+  background-color: #ffffff
+  box-sizing: border-box
+  outline: none
+
+.shopcart-order-address-input
+  border: 1px solid #eaeaea
+  background-color: #ffffff
+  width: 355px
+  height: 45px
+  box-sizing: border-box
+  margin-top: 20px
+  color: #b1b1b1
+  font-size: 13px
+  font-weight: 300
+  padding: 0 18px
+  outline: none
+  &:active
+    outline: none
+
+.shopcart-order-coupon
+  margin-right: 70px
+  flex-direction: column
+  &-p
+    margin-top: 28px
+
+.shopcart-order-total
+  background-color: #f5f3f3
+  width: 350px
+  height: 214px
+  display: flex
+  flex-direction: column
+  text-align: right
+  padding: 40px 40px
+  box-sizing: border-box
+  &-small
+    color: #4a4a4a
+    font-size: 11px
+    font-weight: 400
+    text-transform: uppercase
+  &-big
+    color: #222222
+    font-size: 16px
+    font-weight: 700
+    text-transform: uppercase
+    margin-top: 14px
+  &-hr
+    background: #e2e2e2
+    margin-top: 22px
+    border: 0
+    height: 1px
+  &-a
+    width: 273px
+    height: 50px
+    background-color: $color-site
+    color: #ffffff
+    font-size: 16px
+    font-weight: 700
+    text-transform: uppercase
+    display: flex
+    justify-content: center
+    align-items: center
+    margin-top: 17px
+    transition: background-color 0.3s
+    &:hover
+      background-color: #F19EAE
+
+.remove-item
+  cursor: pointer

@@ -1,0 +1,178 @@
+[
+  {
+    "id": 1,
+    "name": "CRESCENT BAY T-SHIRT",
+	  "img": "img/featured1.jpg",
+    "price": 52,
+    "rating": 4.8,
+    "popularity": 1000
+  },
+  {
+    "id": 2,
+    "name": "TOP",
+	  "img": "img/featured2.jpg",
+    "price": 40,
+    "rating": 4.3,
+    "popularity": 300
+  },
+  {
+    "id": 3,
+    "name": "JACKET",
+	  "img": "img/featured3.jpg",
+    "price": 100,
+    "rating": 5,
+    "popularity": 600
+  },
+  {
+    "id": 4,
+    "name": "BLOUSE IN FLOWERS",
+	  "img": "img/featured4.jpg",
+    "price": 63,
+    "rating": 4.9,
+    "popularity": 800
+  },
+  {
+    "id": 5,
+    "name": "STRIPPED BLOUSE",
+	  "img": "img/featured5.jpg",
+    "price": 36,
+    "rating": 4.2,
+    "popularity": 350
+  },
+  {
+    "id": 6,
+    "name": "BLAZER",
+	  "img": "img/featured6.jpg",
+    "price": 118,
+    "rating": 4,
+    "popularity": 130
+  },
+  {
+    "id": 7,
+    "name": "BEIGE PANTS",
+	  "img": "img/featured7.jpg",
+    "price": 73,
+    "rating": 4.5,
+    "popularity": 560
+  },
+  {
+    "id": 8,
+    "name": "HOODY",
+	  "img": "img/featured8.jpg",
+    "price": 63,
+    "rating": 4.7,
+    "popularity": 410
+  },
+  {
+    "id": 9,
+    "name": "HOODED JACKET",
+	  "img": "img/product/stock1.jpg",
+    "price": 133,
+    "rating": 4.7,
+    "popularity": 345
+  },
+  {
+    "id": 10,
+    "name": "LEATHER JACKET",
+	  "img": "img/product/stock2.jpg",
+    "price": 140,
+    "rating": 3.7,
+    "popularity": 120
+  },
+  {
+    "id": 11,
+    "name": "BLUE DOWN JACKET",
+	  "img": "img/product/stock3.jpg",
+    "price": 80,
+    "rating": 4.8,
+    "popularity": 723
+  },
+  {
+    "id": 12,
+    "name": "LEOPARD T-SHIRT",
+	  "img": "img/product/stock4.jpg",
+    "price": 52,
+    "rating": 4.2,
+    "popularity": 200
+  },
+  {
+    "id": 13,
+    "name": "ABSTRACT HOODY",
+	  "img": "img/product/stock5.jpg",
+    "price": 73,
+    "rating": 4.3,
+    "popularity": 332
+  },
+  {
+    "id": 14,
+    "name": "BOMBER JACKET",
+	  "img": "img/product/stock6.jpg",
+    "price": 80,
+    "rating": 4.9,
+    "popularity": 1200
+  },
+  {
+    "id": 15,
+    "name": "BLUE JACKET",
+	  "img": "img/product/stock7.jpg",
+    "price": 96,
+    "rating": 4.2,
+    "popularity": 231
+  },
+  {
+    "id": 16,
+    "name": "SHIRT JACKET",
+	  "img": "img/product/stock8.jpg",
+    "price": 137,
+    "rating": 5,
+    "popularity": 630
+  },
+  {
+    "id": 17,
+    "name": "SPOTTED T-SHIRT",
+	  "img": "img/product/stock9.jpg",
+    "price": 39,
+    "rating": 4,
+    "popularity": 220
+  },
+  {
+    "id": 18,
+    "name": "GILET IN BLACK",
+	  "img": "img/product/263x280.png",
+    "price": 30,
+    "rating": 4.8,
+    "popularity": 123
+  },
+  {
+    "id": 19,
+    "name": "COWBOY HAT IN BLACK",
+	  "img": "img/product/263x280.png",
+    "price": 20,
+    "rating": 4.1,
+    "popularity": 68
+  },
+  {
+    "id": 20,
+    "name": "REGULAR FIT SATIN SHIRT",
+	  "img": "img/product/263x280.png",
+    "price": 22,
+    "rating": 4.6,
+    "popularity": 430
+  },
+  {
+    "id": 21,
+    "name": "LONG SLEEVE WESTERN",
+	  "img": "img/product/263x280.png",
+    "price": 20,
+    "rating": 4.8,
+    "popularity": 500
+  },
+  {
+    "id": 22,
+    "name": "SKINNY BLAZER IN OMBRE SATIN",
+	  "img": "img/product/263x280.png",
+    "price": 70,
+    "rating": 4.6,
+    "popularity": 316
+  }
+]
